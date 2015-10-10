@@ -3,9 +3,9 @@ Sit And Go
 
 ## Requirements
 
-Composer: getcomposer.org
-PHP 5.3.9+
-MySQL 5.6.15+
+- Composer: getcomposer.org
+- PHP 5.3.9+
+- MySQL 5.6.15+
 
 ## Install
 
