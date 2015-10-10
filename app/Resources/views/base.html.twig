@@ -58,7 +58,9 @@
     {{ include('includes/portfolio.html.twig') }}
     {{ include ('includes/portolio_modals.html.twig') }}
 
-    {{ include('includes/about.html.twig') }}
+    {% block about %}
+        {{ include('includes/about.html.twig') }}
+    {% endblock %}
 
     {{ include('includes/team.html.twig') }}
 
