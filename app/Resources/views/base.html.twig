@@ -39,20 +39,31 @@
 
 {{ include('includes/menu.html.twig') }}
 
-{% block header %}
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Your Poker Platform!</div>
-                <div class="intro-heading">Wanna play?</div>
-                <a href="{{ path('register') }}" class="page-scroll btn btn-xl">Connect</a>
-            </div>
-        </div>
-    </header>
-{% endblock %}
+{% for flashMessage in app.session.getFlashBag('success') %}
+    <div class="alert alert-success" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.getFlashBag('error') %}
+    <div class="alert alert-danger" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
 
 {% block content %}
+    {% block header %}
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Welcome To Your Poker Platform!</div>
+                    <div class="intro-heading">Wanna play?</div>
+                    <a href="{{ path('register') }}" class="page-scroll btn btn-xl">Connect</a>
+                </div>
+            </div>
+        </header>
+    {% endblock %}
     {{ include('includes/services.html.twig') }}
 
     {{ include('includes/portfolio.html.twig') }}

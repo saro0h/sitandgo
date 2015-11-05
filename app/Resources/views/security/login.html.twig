@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        <div class="row">
+            <div class="col-md-12 black-header"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h1>Let's join the party!</h1>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error.message }}
+                </div>
+            {% endif %}
+
+            <form action="{{ path('login_check') }}" method="POST" class="form-horizontal">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+                <label for="password">Password</label>
+                <input type="password" id="paswword" name="_password" />
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
